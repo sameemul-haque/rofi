@@ -11,8 +11,13 @@
 configuration {
 	modi:                       "drun";
     show-icons:                 true;
-    display-drun:               "";
+    display-drun:               "";
+    display-run:                "";
+    display-filebrowser:        "";
+    display-window:             "";
+    display-emoji:              "󰞅";
 	drun-display-format:        "{name}";
+	window-format:              "{c} · {t}";
 }
 
 /*****----- Global Properties -----*****/

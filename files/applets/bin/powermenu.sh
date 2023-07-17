@@ -24,21 +24,15 @@ fi
 # Options
 layout=`cat ${theme} | grep 'USE_ICON' | cut -d'=' -f2`
 if [[ "$layout" == 'NO' ]]; then
-	option_1=" Lock"
-	option_2=" Logout"
-	option_3=" Suspend"
-	option_4=" Hibernate"
-	option_5=" Reboot"
-	option_6=" Shutdown"
+	option_1=" Shutdown"
+	option_2=" Reboot"
+	option_3=" Logout"
 	yes=' Yes'
 	no=' No'
 else
-	option_1=""
-	option_2=""
-	option_3=""
-	option_4=""
-	option_5=""
-	option_6=""
+	option_1=""
+	option_2=""
+	option_3=""
 	yes=''
 	no=''
 fi
@@ -56,7 +50,7 @@ rofi_cmd() {
 
 # Pass variables to rofi dmenu
 run_rofi() {
-	echo -e "$option_1\n$option_2\n$option_3\n$option_4\n$option_5\n$option_6" | rofi_cmd
+	echo -e "$option_1\n$option_2\n$option_3" | rofi_cmd
 }
 
 # Confirmation CMD
@@ -90,17 +84,11 @@ confirm_run () {
 # Execute Command
 run_cmd() {
 	if [[ "$1" == '--opt1' ]]; then
-		betterlockscreen -l
-	elif [[ "$1" == '--opt2' ]]; then
-		confirm_run 'kill -9 -1'
-	elif [[ "$1" == '--opt3' ]]; then
-		confirm_run 'mpc -q pause' 'amixer set Master mute' 'systemctl suspend'
-	elif [[ "$1" == '--opt4' ]]; then
-		confirm_run 'systemctl hibernate'
-	elif [[ "$1" == '--opt5' ]]; then
-		confirm_run 'systemctl reboot'
-	elif [[ "$1" == '--opt6' ]]; then
 		confirm_run 'systemctl poweroff'
+	elif [[ "$1" == '--opt2' ]]; then
+		confirm_run 'systemctl reboot'
+	elif [[ "$1" == '--opt3' ]]; then
+		confirm_run 'kill -9 -1'		
 	fi
 }
 
@@ -115,15 +103,6 @@ case ${chosen} in
         ;;
     $option_3)
 		run_cmd --opt3
-        ;;
-    $option_4)
-		run_cmd --opt4
-        ;;
-    $option_5)
-		run_cmd --opt5
-        ;;
-    $option_6)
-		run_cmd --opt6
         ;;
 esac
 
