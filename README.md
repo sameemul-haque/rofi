@@ -6,6 +6,8 @@
   <img src="previews/logo.png">
 </p>
 
+
+[![LATEST_ROFI_SCRIPTS](https://img.shields.io/badge/LATEST_ROFI_SCRIPTS-00A36C?style=for-the-badge "Updated ROFI scripts are here.")](https://github.com/sameemul-haque/dotfiles/tree/master/.config/rofi)
 - [Rofi](https://github.com/davatorium/rofi)
 - [Rofi Theme](https://github.com/adi1090x/rofi)
 - [Clipboard greenclip](https://github.com/erebe/greenclip)
